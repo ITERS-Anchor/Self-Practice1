@@ -11,9 +11,9 @@ namespace ASP.NET_webapi.Data
     {
         //use Singleton
         
-        private CarRepository _instance;
+        private static CarRepository _instance;
 
-        public CarRepository Instance
+        public static CarRepository Instance
         {            
             get {
                 if (_instance==null)
@@ -24,6 +24,7 @@ namespace ASP.NET_webapi.Data
             }
             
         }
+
         private List<CarDto> _carlist;
 
         private CarRepository()
@@ -42,6 +43,15 @@ namespace ASP.NET_webapi.Data
                     .ToCarDto();//add extention method
 
             return query.ToList();
+        }
+
+        public List<CarDto> GetAll()
+        {
+            return _carlist;
+        }
+        public CarDto GetById(int id)
+        {
+            return _carlist.FirstOrDefault(x=>x.Id==id);
         }
     }
 }
