@@ -182,10 +182,12 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\CarExtension.cs" />
     <Compile Include="Data\CarRepository.cs" />
+    <Compile Include="Data\CityRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CarDto.cs" />
+    <Compile Include="Models\CityDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
