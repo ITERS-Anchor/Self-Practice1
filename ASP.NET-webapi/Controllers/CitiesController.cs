@@ -24,8 +24,9 @@ namespace ASP.NET_webapi.Controllers
         }
 
         // POST: api/Cities
-        public CityDto Post([FromBody]CityDto city)
+        public CityDto Post(CityDto city)
         {
+            
             CityRepository.Instance.Add(city);
             return city;
         }

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <h2>This is my test page</h2>
+    <button id="show">Show Cities</button>
+
+    <pre id="output">
+    </pre>
+
+
+    <script>
+        $(function () {
+
+            url = "http://localhost:7151/api/cities"
+
+            $("#show").click(function () {
+                $.get(url).always(showResponse);
+                return false;
+            });
+
+            var showResponse = function (object) {
+                $("#output").text(JSON.stringify(object, null, 4));
+            }
+
+            
+        });
+
+    </script>
+</body>
+</html>
