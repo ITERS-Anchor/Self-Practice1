@@ -47,6 +47,48 @@ namespace ASP.NET_webapi.Data
             });
         }
 
-       
+        public IEnumerable<CityDto> GetAll()
+        {
+            return _cityList;
+        }
+
+        public CityDto GetById(int id)
+        {
+            return _cityList.FirstOrDefault(x => x.Id == id);
+        }
+
+        public CityDto GetByName(string name)
+        {
+            CityDto city = _cityList.FirstOrDefault(x => x.Name == name);
+            return city;
+        }
+        // _cities.Find(x => x.Description.Contains("blalabla"));
+        public CityDto Add(CityDto newcity)
+        {
+            if (newcity == null)
+            {
+                throw new ArgumentNullException();
+            }
+            _cityList.Add(newcity);
+            return newcity;
+        }
+        public bool Update(CityDto city)
+        {
+            var c = _cityList.FirstOrDefault(x => x.Id == city.Id);
+            if (c == null)
+            {
+                throw new ArgumentNullException();
+            }
+            c.Name = city.Name;
+            c.Description = city.Description;
+            return true;
+        }
+
+        public bool Delete(int id)
+        {
+            var c = _cityList.FirstOrDefault(x => x.Id == id);
+            _cityList.Remove(c);
+            return true;
+        }
     }
 }

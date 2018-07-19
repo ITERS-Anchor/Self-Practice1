@@ -12,7 +12,6 @@ namespace ASP.NET_webapi.Controllers
     public class CarsController : ApiController
     {
         
-
         public IHttpActionResult Get()
         {
             CarRepository instance =CarRepository.Instance;
